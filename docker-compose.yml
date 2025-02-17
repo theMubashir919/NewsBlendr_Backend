@@ -118,6 +118,43 @@ services:
             - '/dev/shm:/dev/shm'
         networks:
             - sail
+    horizon:
+        build:
+            context: './vendor/laravel/sail/runtimes/8.4'
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: 'sail-8.4/app'
+        restart: unless-stopped
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+        depends_on:
+            - laravel.test
+            - redis
+        volumes:
+            - '.:/var/www/html'
+        command: ['php', 'artisan', 'horizon']
+        networks:
+            - sail
+    scheduler:
+        build:
+            context: './vendor/laravel/sail/runtimes/8.4'
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: 'sail-8.4/app'
+        restart: unless-stopped
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+        depends_on:
+            - laravel.test
+        volumes:
+            - '.:/var/www/html'
+        command: ['php', 'artisan', 'schedule:work']
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
