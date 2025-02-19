@@ -15,13 +15,21 @@ return [
     |
     */
 
-    'paths' => ['*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:3000')],
+    'allowed_origins' => [
+        env('FRONTEND_URL', 'http://localhost:3000'),
+        // Add any additional domains if needed
+        // 'https://staging.yourdomain.com',
+        // 'https://yourdomain.com'
+    ],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => [
+        // In case you need to allow subdomains or dynamic domains
+        // 'https://*.yourdomain.com'
+    ],
 
     'allowed_headers' => ['*'],
 
@@ -29,6 +37,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => true,
+    'supports_credentials' => true, // Enable this for cookies/authentication
 
 ];
