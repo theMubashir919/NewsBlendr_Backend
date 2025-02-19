@@ -105,6 +105,11 @@ sail artisan db:seed
 11. Initialize Meilisearch:
 ```bash
 sail artisan meilisearch:initialize
+
+# Run bulk imports for all sources
+sail artisan news:bulk-newsapi --from="2 weeks ago" --to="today" --max-articles=100
+sail artisan news:bulk-guardian --from="1 week ago" --to="today" --max-pages=10
+sail artisan news:bulk-nytimes --from="1 week ago" --to="today" --max-pages=10
 ```
 
 ## Laravel Sail Services
