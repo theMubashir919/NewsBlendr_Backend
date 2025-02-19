@@ -1,0 +1,19 @@
+meta {
+  name: Get Latest Articles
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/articles/latest
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: cS2VEomYOmMvJVoRYMJaus1G1jCW0rhO34g3VI69f2c86297
+}
+
+docs {
+  Get 20 most recent articles
+}

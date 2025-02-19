@@ -1,0 +1,19 @@
+meta {
+  name: Remove Bookmark
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{base_url}}/articles/5691/bookmark
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: cS2VEomYOmMvJVoRYMJaus1G1jCW0rhO34g3VI69f2c86297
+}
+
+docs {
+  Remove article from bookmarks
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get Source Stats
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/sources/1/stats
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{auth_token}}
+}
+
+docs {
+  Get statistics for a specific source
+}

@@ -7,10 +7,15 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\SourceController;
 use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\UserPreferencesController;
+use App\Http\Controllers\Api\AuthController;
 
 // Public routes - Only preview/sample content
 Route::get('/articles/preview', [ArticleController::class, 'preview']); // Returns random selection of recent articles
 Route::get('/articles/{id}/preview', [ArticleController::class, 'previewArticle']); // Returns limited article data
+
+// Auth routes only for jwt token
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 // Protected routes (require authentication)
 Route::middleware(['auth:sanctum'])->group(function () {

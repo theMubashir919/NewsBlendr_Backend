@@ -1,0 +1,30 @@
+meta {
+  name: Update Preferences
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/preferences
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{auth_token}}
+}
+
+body:json {
+  {
+    "preferred_categories": [1, 2, 3],
+    "preferred_sources": [1, 2],
+    "notification_preferences": {
+      "email": true,
+      "push": false
+    }
+  }
+}
+
+docs {
+  Update user's preferences
+}

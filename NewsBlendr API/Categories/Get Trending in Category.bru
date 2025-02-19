@@ -1,0 +1,19 @@
+meta {
+  name: Get Trending in Category
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/categories/1/trending
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: cS2VEomYOmMvJVoRYMJaus1G1jCW0rhO34g3VI69f2c86297
+}
+
+docs {
+  Get trending articles in a specific category
+}

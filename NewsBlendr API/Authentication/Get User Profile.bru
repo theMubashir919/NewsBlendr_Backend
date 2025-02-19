@@ -1,0 +1,19 @@
+meta {
+  name: Get User Profile
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/user
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: cS2VEomYOmMvJVoRYMJaus1G1jCW0rhO34g3VI69f2c86297
+}
+
+docs {
+  Get authenticated user's profile
+}

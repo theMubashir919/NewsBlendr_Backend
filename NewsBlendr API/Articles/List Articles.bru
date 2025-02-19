@@ -1,0 +1,30 @@
+meta {
+  name: List Articles
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/articles?search=technology&per_page=15&sort_by=published_at&sort_order=desc
+  body: none
+  auth: bearer
+}
+
+params:query {
+  search: technology
+  per_page: 15
+  sort_by: published_at
+  sort_order: desc
+  ~category: 1
+  ~source: 1
+  ~from_date: 2024-01-01
+  ~to_date: 2024-12-31
+}
+
+auth:bearer {
+  token: 1|y6FCmxEEshGUZsPm9PTy30QDQTkcLsP7cNzAHKmy3916cc8c
+}
+
+docs {
+  Get paginated list of articles with optional filters
+}

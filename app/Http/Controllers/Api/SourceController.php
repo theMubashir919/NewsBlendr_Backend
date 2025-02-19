@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Source;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class SourceController extends Controller
 {
@@ -38,6 +39,15 @@ class SourceController extends Controller
     {
         $source = Source::findOrFail($id);
         
+        $mostCoveredCategories = $source->articles()
+            ->join('categories', 'articles.category_id', '=', 'categories.id')
+            ->select('categories.name as category')
+            ->selectRaw('COUNT(*) as article_count')
+            ->groupBy('categories.id', 'categories.name')
+            ->orderByDesc('article_count')
+            ->take(5)
+            ->get();
+        
         return response()->json([
             'status' => 'success',
             'data' => [
@@ -45,12 +55,7 @@ class SourceController extends Controller
                 'articles_today' => $source->articles()
                     ->whereDate('published_at', today())
                     ->count(),
-                'most_covered_categories' => $source->articles()
-                    ->select('category')
-                    ->groupBy('category')
-                    ->orderByRaw('COUNT(*) DESC')
-                    ->take(5)
-                    ->get()
+                'most_covered_categories' => $mostCoveredCategories
             ]
         ]);
     }

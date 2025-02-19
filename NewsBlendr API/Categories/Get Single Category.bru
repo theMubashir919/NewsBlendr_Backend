@@ -1,0 +1,19 @@
+meta {
+  name: Get Single Category
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/categories/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: cS2VEomYOmMvJVoRYMJaus1G1jCW0rhO34g3VI69f2c86297
+}
+
+docs {
+  Get detailed information about a specific category
+}

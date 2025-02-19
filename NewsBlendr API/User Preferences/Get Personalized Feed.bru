@@ -1,0 +1,19 @@
+meta {
+  name: Get Personalized Feed
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/feed
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{auth_token}}
+}
+
+docs {
+  Get user's personalized news feed
+}

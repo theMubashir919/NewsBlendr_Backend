@@ -1,0 +1,19 @@
+meta {
+  name: Get Trending Articles
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/articles/trending
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 2|cS2VEomYOmMvJVoRYMJaus1G1jCW0rhO34g3VI69f2c86297
+}
+
+docs {
+  Get top 10 trending articles
+}

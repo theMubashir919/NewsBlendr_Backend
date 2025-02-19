@@ -1,0 +1,19 @@
+meta {
+  name: Get Single Source
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/sources/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{auth_token}}
+}
+
+docs {
+  Get detailed information about a specific source
+}

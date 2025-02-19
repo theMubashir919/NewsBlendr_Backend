@@ -1,0 +1,19 @@
+meta {
+  name: Get Popular Authors
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/authors/popular
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: cS2VEomYOmMvJVoRYMJaus1G1jCW0rhO34g3VI69f2c86297
+}
+
+docs {
+  Get list of popular authors
+}

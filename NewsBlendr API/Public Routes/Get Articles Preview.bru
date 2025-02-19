@@ -1,0 +1,19 @@
+meta {
+  name: Get Articles Preview
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/articles/preview
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{auth_token}}
+}
+
+docs {
+  Returns a random selection of recent articles
+}

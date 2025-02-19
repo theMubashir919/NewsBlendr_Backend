@@ -1,0 +1,19 @@
+meta {
+  name: List Sources
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/sources
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{auth_token}}
+}
+
+docs {
+  Get all news sources
+}

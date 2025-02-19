@@ -1,0 +1,19 @@
+meta {
+  name: Get Single Author
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/authors/72
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: cS2VEomYOmMvJVoRYMJaus1G1jCW0rhO34g3VI69f2c86297
+}
+
+docs {
+  Get detailed information about a specific author
+}
